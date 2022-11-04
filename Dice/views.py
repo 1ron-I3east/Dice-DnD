@@ -3,7 +3,7 @@ from .models import*
 import pandas as pd
 # Create your views here.
 def home(request):
-    item = Student.objects.all().values()
+    item = Character.objects.all().values()
     df = pd.DataFrame(item)
    
     mydict = {
