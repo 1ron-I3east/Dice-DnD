@@ -19,12 +19,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from Dice import views
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', include('Dice.urls')),
     # path('download/', views.download.download_file),
-    path('main/',views.main.home)
+    path('main/',views.main.home),
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path(
+        'docs/',
+        SpectacularSwaggerView.as_view(
+            url_name='schema'
+        ),
+        name='swagger-ui',
+    ),
+
 ]
 
 if settings.DEBUG:

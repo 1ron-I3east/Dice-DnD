@@ -12,27 +12,7 @@ from .serializers import HTMLtextSerializers
 from .models import*
 import pandas as pd
 import json
-# Create your views here.
-# class download:
-#    def download_file(request):
-        # if filename != '':
-        #     # Define Django project base directory
-        #     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        #     # Define the full file path
-        #     filepath = BASE_DIR + '/cooldice/' + filename
-        #     # Open the file for reading content
-        #     path = open(filepath, 'rb')
-        #     # Set the mime type
-        #     mime_type, _ = mimetypes.guess_type(filepath)
-        #     # Set the return value of the HttpResponse
-        #     response = HttpResponse(path, content_type=mime_type)
-        #     # Set the HTTP header for sending to browser
-        #     response['Content-Disposition'] = "attachment; filename=%s" % filename
-        #     # Return the response value
-        #     return response
-        # else:
-        #     # Load the template
-        # return render(request, 'index2.html')
+
 class main:
     def home(request):
         item = Character.objects.all().values()
@@ -63,3 +43,24 @@ class dice_view(APIView):
         #     "df": df.to_html()
         # }
         # return render(request, 'index.html', parsed)
+        # Create your views here.
+# class download:
+#    def download_file(request):
+        # if filename != '':
+        #     # Define Django project base directory
+        #     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        #     # Define the full file path
+        #     filepath = BASE_DIR + '/cooldice/' + filename
+        #     # Open the file for reading content
+        #     path = open(filepath, 'rb')
+        #     # Set the mime type
+        #     mime_type, _ = mimetypes.guess_type(filepath)
+        #     # Set the return value of the HttpResponse
+        #     response = HttpResponse(path, content_type=mime_type)
+        #     # Set the HTTP header for sending to browser
+        #     response['Content-Disposition'] = "attachment; filename=%s" % filename
+        #     # Return the response value
+        #     return response
+        # else:
+        #     # Load the template
+        # return render(request, 'index2.html')
