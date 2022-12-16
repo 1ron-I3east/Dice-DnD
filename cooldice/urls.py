@@ -23,10 +23,11 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', include('Dice.urls')),
+   
     # path('download/', views.download.download_file),
-    path('main/',views.main.home),
+    path('main/',views.main.home, name='main'),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('test/', include('Dice.urls')),
     path(
         'docs/',
         SpectacularSwaggerView.as_view(
@@ -34,6 +35,7 @@ urlpatterns = [
         ),
         name='swagger-ui',
     ),
+    path('download/',views.main.download, name=('down'))
 
 ]
 
